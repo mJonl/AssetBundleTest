@@ -1,0 +1,46 @@
+.vs
+/win32
+ 
+# =============== #
+# Unity generated #
+# =============== #
+android/
+Temp/
+Obj/
+UnityGenerated/
+Library/
+Assets/AssetStoreTools*
+# Assets/Resources/Mould/BrickMat/
+# Assets/Resources/Mould/BrickMat/*.mat
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+*.orig
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+Assets/ExcelMgr/Excel/~$Config.xlsx.meta
+Assets/Resources/Sky.meta
+Assets/Resources/ShaderS.meta
+Assets/Metal Cubicmap V1/Cubicmap/_cubmap.meta
+Assets/Metal Cubicmap V1/Cubicmap.meta
+Assets/Metal Cubicmap V1.meta
