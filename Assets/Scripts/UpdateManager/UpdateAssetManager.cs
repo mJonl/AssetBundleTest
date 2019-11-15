@@ -47,7 +47,8 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
         } 
         else 
         {
-            if(webReq.responseCode == 200) {
+            if(webReq.responseCode == 200)
+            {//HTTP状态码,200表示OK
                 byte[] result = webReq.downloadHandler.data;
                 AssetBundle onlineManifestAB = AssetBundle.LoadFromMemory(result);
                 onlineManifest = onlineManifestAB.LoadAsset<AssetBundleManifest>("AssetBundlemanifest");
