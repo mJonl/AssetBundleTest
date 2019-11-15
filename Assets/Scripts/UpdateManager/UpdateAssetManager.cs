@@ -105,7 +105,7 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
                 MsgDispatcher.GetInstance().Fire(GameEvents.Msg_DownloadProgress, string.Format("解压缩包数据...({0}/{1})",count,total));
 
             }
-            PlayerPrefs.SetString("IsFirstLaunch", "false");
+            PlayerPrefs.SetInt("IsFirstLaunch", 1);
 
         } else {
             Debug.Log("无需解压缩!");
