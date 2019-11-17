@@ -22,7 +22,8 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
 
     IEnumerator progress(UnityAction onComplete) {
         //第一次进入游戏 把streamingassets文件夹数据解压缩到指定的下载目录
-        if(true || PlayerPrefs.HasKey("IsFirstLaunch")) {
+        if (true || PlayerPrefs.GetString("IsFirstLaunch", "true") == "true")
+        {
             yield return StartCoroutine(streamingAssetfolderCopyToDownloadFolder());
         }
 
@@ -58,7 +59,7 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
             }
             yield return StartCoroutine(download());
 
-           
+            PlayerPrefs.SetString("IsFirstLaunch", "false");
             if (onComplete != null) {
                 onComplete();
             }
