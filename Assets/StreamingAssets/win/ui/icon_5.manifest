@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 834619426
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5a2c64f7a8dc62f7afc75eef04df5cf2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a354baa3bcdaca8cba5e1ac053aaeade
+HashAppended: 0
+ClassTypes:
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/UI/icon_5.png
+Dependencies: []

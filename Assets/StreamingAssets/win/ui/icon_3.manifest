@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 302025312
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f364208f2ff335c5ed80785509a80137
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a354baa3bcdaca8cba5e1ac053aaeade
+HashAppended: 0
+ClassTypes:
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/UI/icon_3.png
+Dependencies: []

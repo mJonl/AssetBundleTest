@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 3026285495
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e14a9c8361a62a2929fbc6c4b4277f02
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a15026e7645264409a88f84f584030a1
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/Materials/test_mat.mat
+Dependencies: []

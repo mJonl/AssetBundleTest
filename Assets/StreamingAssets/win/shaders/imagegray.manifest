@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 2212311549
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e261eeaec8d9adcb0ce6cf1ca93712d7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 677a1d6a6e8c5d2da1d9d0fadde392d8
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/Shaders/ImageGray.shader
+Dependencies: []

@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2987375341
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cd9a82c32f2fe360808ee279aeae9f44
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a354baa3bcdaca8cba5e1ac053aaeade
+HashAppended: 0
+ClassTypes:
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/UI/icon_12.png
+Dependencies: []

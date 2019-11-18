@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 913921795
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 26f49c61289df6597d12f48d87b2afaf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/Textures/wallhaven-707597.jpg
+Dependencies: []

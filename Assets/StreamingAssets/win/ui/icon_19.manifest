@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 2073090560
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: afe90ef32109b626e0f6393b6adadc97
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a354baa3bcdaca8cba5e1ac053aaeade
+HashAppended: 0
+ClassTypes:
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+Assets:
+- Assets/GameRes/UI/icon_19.png
+Dependencies: []
