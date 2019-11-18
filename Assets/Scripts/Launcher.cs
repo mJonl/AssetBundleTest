@@ -68,17 +68,18 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
     
 
     void onClickedBtn() {
-        /*
+        
         AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("ui_atlas"), (SpriteAtlas sp) => {
             Sprite p = sp.GetSprite("icon_2");
             Img.sprite = sp.GetSprite(string.Format("icon_{0}",Random.Range(0,sp.spriteCount-1)));
-        });*/
+        });
 
+        /*
         AssetBundle.LoadFromFile(Application.dataPath + "/StreamingAssets/win/ui/icon_0");
         AssetBundle ab = AssetBundle.LoadFromFile(Application.dataPath + "/StreamingAssets/win/atlas/ui_atlas");
         //GameObject obj = ab.LoadAsset<GameObject>("uiroot");
         SpriteAtlas sp = ab.LoadAsset<SpriteAtlas>("ui_atlas");
 
-        Img.sprite = sp.GetSprite("icon_0");
+        Img.sprite = sp.GetSprite("icon_0");*/
     }
 }
