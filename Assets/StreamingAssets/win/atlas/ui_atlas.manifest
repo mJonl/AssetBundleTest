@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 563831582
+CRC: 3619776569
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a7ce8975d7143de3b61d00d4f1d1c135
+    Hash: 0d833d6afa743bca25d8196342532775
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8d614ba2bf78fe185c64b512c1591e5d
@@ -18,23 +18,23 @@ ClassTypes:
 Assets:
 - Assets/GameRes/Atlas/ui_atlas.spriteatlas
 Dependencies:
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_0
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_1
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_10
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_11
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_12
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_13
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_14
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_15
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_16
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_17
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_18
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_19
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_2
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_3
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_4
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_5
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_6
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_7
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_8
-- E:/Unity_Temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_9
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_0
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_1
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_10
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_11
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_12
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_13
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_14
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_15
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_16
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_17
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_18
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_19
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_2
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_3
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_4
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_5
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_6
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_7
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_8
+- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_9

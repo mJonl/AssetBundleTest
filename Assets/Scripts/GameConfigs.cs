@@ -107,6 +107,20 @@ public static class GameConfigs
         }
         return AssetRoot + str;
     }
-    
+    //精灵路径
+    public static string GetSpritePath(string name)
+    {
+        string str = "/UI/" + name;
+        if (LoadAssetMode != FoxGame.Asset.AssetLoadMode.Editor)
+        {
+            str = str.ToLower();
+        }
+        else
+        {
+            str = str + ".png";
+        }
+        return AssetRoot + str;
+    }
+
     #endregion
 }

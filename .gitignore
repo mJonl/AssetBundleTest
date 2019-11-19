@@ -10,9 +10,7 @@ Obj/
 UnityGenerated/
 Library/
 Assets/AssetStoreTools*
-# Assets/Resources/Mould/BrickMat/
-# Assets/Resources/Mould/BrickMat/*.mat
- 
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -27,6 +25,7 @@ ExportedObj/
 *.unityproj
 *.booproj
 *.orig
+*.idea
 # ============ #
 # OS generated #
 # ============ #
@@ -38,9 +37,4 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
-Assets/ExcelMgr/Excel/~$Config.xlsx.meta
-Assets/Resources/Sky.meta
-Assets/Resources/ShaderS.meta
-Assets/Metal Cubicmap V1/Cubicmap/_cubmap.meta
-Assets/Metal Cubicmap V1/Cubicmap.meta
-Assets/Metal Cubicmap V1.meta
+
