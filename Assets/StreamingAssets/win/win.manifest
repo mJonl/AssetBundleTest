@@ -1,30 +1,10 @@
 ManifestFileVersion: 0
-CRC: 2319164224
+CRC: 2480531391
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: atlas/ui_atlas
-      Dependencies:
-        Dependency_0: ui/icon_0
-        Dependency_1: ui/icon_1
-        Dependency_2: ui/icon_10
-        Dependency_3: ui/icon_11
-        Dependency_4: ui/icon_12
-        Dependency_5: ui/icon_13
-        Dependency_6: ui/icon_14
-        Dependency_7: ui/icon_15
-        Dependency_8: ui/icon_16
-        Dependency_9: ui/icon_17
-        Dependency_10: ui/icon_18
-        Dependency_11: ui/icon_19
-        Dependency_12: ui/icon_2
-        Dependency_13: ui/icon_3
-        Dependency_14: ui/icon_4
-        Dependency_15: ui/icon_5
-        Dependency_16: ui/icon_6
-        Dependency_17: ui/icon_7
-        Dependency_18: ui/icon_8
-        Dependency_19: ui/icon_9
+      Dependencies: {}
     Info_1:
       Name: audios/arrowhit
       Dependencies: {}
@@ -54,64 +34,4 @@ AssetBundleManifest:
       Dependencies: {}
     Info_10:
       Name: textures/wallhaven-707721
-      Dependencies: {}
-    Info_11:
-      Name: ui/icon_0
-      Dependencies: {}
-    Info_12:
-      Name: ui/icon_1
-      Dependencies: {}
-    Info_13:
-      Name: ui/icon_10
-      Dependencies: {}
-    Info_14:
-      Name: ui/icon_11
-      Dependencies: {}
-    Info_15:
-      Name: ui/icon_12
-      Dependencies: {}
-    Info_16:
-      Name: ui/icon_13
-      Dependencies: {}
-    Info_17:
-      Name: ui/icon_14
-      Dependencies: {}
-    Info_18:
-      Name: ui/icon_15
-      Dependencies: {}
-    Info_19:
-      Name: ui/icon_16
-      Dependencies: {}
-    Info_20:
-      Name: ui/icon_17
-      Dependencies: {}
-    Info_21:
-      Name: ui/icon_18
-      Dependencies: {}
-    Info_22:
-      Name: ui/icon_19
-      Dependencies: {}
-    Info_23:
-      Name: ui/icon_2
-      Dependencies: {}
-    Info_24:
-      Name: ui/icon_3
-      Dependencies: {}
-    Info_25:
-      Name: ui/icon_4
-      Dependencies: {}
-    Info_26:
-      Name: ui/icon_5
-      Dependencies: {}
-    Info_27:
-      Name: ui/icon_6
-      Dependencies: {}
-    Info_28:
-      Name: ui/icon_7
-      Dependencies: {}
-    Info_29:
-      Name: ui/icon_8
-      Dependencies: {}
-    Info_30:
-      Name: ui/icon_9
       Dependencies: {}

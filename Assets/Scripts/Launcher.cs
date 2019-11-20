@@ -68,23 +68,26 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
     
 
     void onClickedBtn() {
-        /*
+        
         AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("ui_atlas"), (SpriteAtlas sp) => {
             Sprite p = sp.GetSprite("icon_2");
             Img.sprite = sp.GetSprite(string.Format("icon_{0}",Random.Range(0,sp.spriteCount-1)));
-        });*/
-        
-        AssetManager.Instance.LoadAssetAsync<Sprite>(GameConfigs.GetSpritePath("icon_0"), (Sprite sp) => {
-            Img.sprite = sp;
         });
+        
+       // AssetManager.Instance.LoadAssetAsync<Sprite>(GameConfigs.GetSpritePath("icon_0"), (Sprite sp) => {
+       //     Img.sprite = sp;
+       // });
         //AssetManager.Instance.LoadAssetAsync<Sprite>(GameConfigs.GetSpritePath("icon_1"), (Sprite sp) => {
         //
         ///});
-        /*
-        AssetManager.Instance.LoadAsset<Sprite>(GameConfigs.GetSpritePath("icon_0"));
-        AssetManager.Instance.LoadAsset<Sprite>(GameConfigs.GetSpritePath("icon_1"));*/
+        
+        //AssetManager.Instance.LoadAsset<Sprite>(GameConfigs.GetSpritePath("icon_0"));
+        //AssetManager.Instance.LoadAsset<Sprite>(GameConfigs.GetSpritePath("icon_1"));
+        //SpriteAtlas ab = AssetManager.Instance.LoadAsset<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("ui_atlas"));
+       // Img.sprite = ab.GetSprite("icon_0"); 
         /*
         AssetBundle.LoadFromFile(Application.dataPath + "/StreamingAssets/win/ui/icon_0");
+        AssetBundle.LoadFromFile(Application.dataPath + "/StreamingAssets/win/ui/icon_1");
         AssetBundle ab = AssetBundle.LoadFromFile(Application.dataPath + "/StreamingAssets/win/atlas/ui_atlas");
         //GameObject obj = ab.LoadAsset<GameObject>("uiroot");
         SpriteAtlas sp = ab.LoadAsset<SpriteAtlas>("ui_atlas");

@@ -39,7 +39,7 @@ public class BuildAssetBundles {
         AssetDatabase.SaveAssets();
         AssetBundleBuild[] buildMap = GetBuildFileList(buildRootPath);
         PathUtils.CreateFolder(exportPath);
-        BuildPipeline.BuildAssetBundles(exportPath,buildMap, BuildAssetBundleOptions.DeterministicAssetBundle, buildTarget);
+        BuildPipeline.BuildAssetBundles(exportPath,buildMap, BuildAssetBundleOptions.None, buildTarget);
         Debug.Log("打包完毕");
     }
 

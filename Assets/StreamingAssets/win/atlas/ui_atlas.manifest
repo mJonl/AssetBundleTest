@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3619776569
+CRC: 334019651
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0d833d6afa743bca25d8196342532775
+    Hash: 9c93bcfbe044344288895c8d50a3e5a9
   TypeTreeHash:
     serializedVersion: 2
     Hash: 8d614ba2bf78fe185c64b512c1591e5d
@@ -17,24 +17,4 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/GameRes/Atlas/ui_atlas.spriteatlas
-Dependencies:
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_0
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_1
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_10
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_11
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_12
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_13
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_14
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_15
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_16
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_17
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_18
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_19
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_2
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_3
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_4
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_5
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_6
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_7
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_8
-- D:/work/temp/AssetBundleTest/Assets/StreamingAssets/win/ui/icon_9
+Dependencies: []
