@@ -93,7 +93,6 @@ namespace FoxGame.Asset
             AssetBundle assetBundle = null;
             Debug.Log("[加载2 目标资源]: " + path);
             createRequest = AssetBundle.LoadFromFileAsync(path);
-           
             yield return createRequest;
             if (createRequest.isDone) {
                 assetBundle = createRequest.assetBundle;

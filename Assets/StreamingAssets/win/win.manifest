@@ -1,37 +1,37 @@
 ManifestFileVersion: 0
-CRC: 2480531391
+CRC: 3835745633
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: atlas/ui_atlas
+      Name: dependencie/gameres/atlas/ui_atlas
       Dependencies: {}
     Info_1:
-      Name: audios/arrowhit
+      Name: dependencie/gameres/audios/arrowhit
       Dependencies: {}
     Info_2:
-      Name: audios/arrowshot
+      Name: dependencie/gameres/audios/arrowshot
       Dependencies: {}
     Info_3:
-      Name: fonts/duralith (free)
+      Name: dependencie/gameres/fonts/duralith (free)
       Dependencies: {}
     Info_4:
-      Name: materials/test_mat
+      Name: dependencie/gameres/materials/test_mat
       Dependencies: {}
     Info_5:
-      Name: prefabs/cube
+      Name: dependencie/gameres/prefabs/cube
       Dependencies: {}
     Info_6:
-      Name: prefabs/uiroot
+      Name: dependencie/gameres/prefabs/uiroot
       Dependencies: {}
     Info_7:
-      Name: shaders/imagegray
+      Name: dependencie/gameres/shaders/imagegray
       Dependencies: {}
     Info_8:
-      Name: textures/wallhaven-643672
+      Name: dependencie/gameres/textures/wallhaven-643672
       Dependencies: {}
     Info_9:
-      Name: textures/wallhaven-707597
+      Name: dependencie/gameres/textures/wallhaven-707597
       Dependencies: {}
     Info_10:
-      Name: textures/wallhaven-707721
+      Name: dependencie/gameres/textures/wallhaven-707721
       Dependencies: {}
