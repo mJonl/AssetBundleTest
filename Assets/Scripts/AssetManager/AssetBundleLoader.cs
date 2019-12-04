@@ -75,6 +75,8 @@ namespace FoxGame.Asset
             //3加载依赖资源
             AssetBundleCreateRequest createRequest;
             List<AssetBundle> assetbundleList = new List<AssetBundle>();
+            //AssetManager.Instance.LoadAsset<Sprite>(GameConfigs.GetSpritePath("icon_0icon"));
+            
             foreach (string fileName in dependencies) {
                 string dependencyPath = assetRootPath + "/" + fileName;
 
@@ -93,6 +95,7 @@ namespace FoxGame.Asset
             AssetBundle assetBundle = null;
             Debug.Log("[加载2 目标资源]: " + path);
             createRequest = AssetBundle.LoadFromFileAsync(path);
+           
             yield return createRequest;
             if (createRequest.isDone) {
                 assetBundle = createRequest.assetBundle;

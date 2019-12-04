@@ -6,6 +6,7 @@ using FoxGame;
 using FoxGame.Asset;
 using UnityEngine.U2D;
 
+
 public class Launcher : MonoBehaviour ,IMsgReceiver{
     public Text Content;
     public Image Img;
@@ -68,9 +69,16 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
     
 
     void onClickedBtn() {
-        AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("ui_atlas"), (SpriteAtlas sp) => {
-            Sprite p = sp.GetSprite("icon_2");
-            Img.sprite = sp.GetSprite(string.Format("icon_{0}",Random.Range(0,sp.spriteCount-1)));
+
+       
+        AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("comAtlas"), (SpriteAtlas sp) => {
+          Sprite p = sp.GetSprite("btn2");
+           Img.sprite = p;
         });
+
+         AssetManager.Instance.LoadAssetAsync<GameObject>(GameConfigs.GetPrefabsPath("Cube"), (GameObject sp) => {
+            GameObject.Instantiate(sp);
+         });
+        
     }
 }

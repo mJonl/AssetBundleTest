@@ -15,7 +15,7 @@ public class MsgDispatcher {
     }
 
 
-    //订阅消息
+    //订阅消息,为何class可以作为接口参数
     public void Subscribe(string msg, IMsgReceiver recevier) {
         if (recevier == null) {
             Debug.LogError("SubscribeMsg : recevier == null");

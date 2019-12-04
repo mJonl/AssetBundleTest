@@ -4,13 +4,12 @@
 # =============== #
 # Unity generated #
 # =============== #
-android/
 Temp/
 Obj/
-UnityGenerated/
+.idea/
 Library/
-Assets/AssetStoreTools*
-
+Assets/StreamingAssets
+AssetBundles/
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
@@ -25,16 +24,5 @@ ExportedObj/
 *.unityproj
 *.booproj
 *.orig
-*.idea
-# ============ #
-# OS generated #
-# ============ #
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
-Assets/StreamingAssets
+
+

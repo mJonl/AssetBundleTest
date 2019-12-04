@@ -40,6 +40,7 @@ public class BuildAssetBundles {
         AssetBundleBuild[] buildMap = GetBuildFileList(buildRootPath);
         PathUtils.CreateFolder(exportPath);
         BuildPipeline.BuildAssetBundles(exportPath,buildMap, BuildAssetBundleOptions.DeterministicAssetBundle, buildTarget);
+        AssetDatabase.Refresh();
         Debug.Log("打包完毕");
     }
 
@@ -49,6 +50,7 @@ public class BuildAssetBundles {
         //Directory.GetDirectories(exportPath).ToList().ForEach(Directory.Delete);
         Directory.Delete(exportPath, true);
         Debug.Log("清理完成!");
+        
     }
 
     [MenuItem("AssetBuild/清理win端本地目录数据")]
@@ -72,6 +74,7 @@ public class BuildAssetBundles {
             AssetBundleBuild build = new AssetBundleBuild();
             build.assetBundleName = GetAssetBundleNameWithPath(path);
             build.assetNames = new string[1] { path };
+            build.assetBundleVariant = GetVariantName(files[i]);
             buildMap.Add(build);
         }
 
@@ -159,8 +162,9 @@ public class BuildAssetBundles {
 	static string GetAssetBundleNameWithPath(string path)
 	{
 		string p = Path.GetDirectoryName (path)+ "/" + Path.GetFileNameWithoutExtension (path);
-		//判断是依赖资源还是固定资源
-		if(!isFixedBuildAsset(p))
+        p = PathUtils.NormalizePath(p);
+        //判断是依赖资源还是固定资源
+        if (!isFixedBuildAsset(p))
 		{
 			p = PathUtils.ReplaceFirst(p,"Assets","Dependencie");
 			//p = p.Replace ("Assets","Dependencie");
@@ -169,15 +173,53 @@ public class BuildAssetBundles {
 			p = PathUtils.ReplaceFirst(p,PathUtils.GetRelativePath(buildRootPath,Application.dataPath) + "/", "");
 			//p = p.Replace (buildRoot + "/","");
 		}
-		return p;
+        char[] separator = { '/' };
+        string[] arr = path.Split(separator);
+        if (arr.Length >= 3)
+        {
+            if (string.Compare(arr[arr.Length - 3], "Image") == 0)//图集里的图片合并一个图集
+            {
+                int tmpIndex = p.LastIndexOf("/");
+
+                p = p.Substring(0, tmpIndex); //可截取替换字符串
+
+            }
+        }
+        return p;
 	}
 
-	/// <summary>
-	/// 判断是不是固定打包资源 
-	/// </summary>
-	/// <returns><c>true</c>, if fixed build asset was ised, <c>false</c> otherwise.</returns>
-	/// <param name="path">相对地址.</param>
-	static bool isFixedBuildAsset(string path)
+    static string GetVariantName(FileInfo fileInfo)
+    {
+        string assetBundleVariant = "";
+        if (fileInfo.Extension == ".unity")
+        {
+            //定义AB包扩展名
+            assetBundleVariant = "u3d";
+        }
+        else if (fileInfo.Extension == ".png")
+        {
+            //定义AB包扩展名
+            assetBundleVariant = "img";
+        }
+        else if (fileInfo.Extension == ".wav" || fileInfo.Extension == ".WAV")
+        {
+            //定义AB包扩展名
+            assetBundleVariant = "wa";
+        }
+        else
+        {
+            //tmpImpObj.assetBundleVariant = "ab";
+            int tmpIndex = fileInfo.Extension.IndexOf(".");
+            assetBundleVariant = fileInfo.Extension.Substring(tmpIndex + 1, 3);
+        }
+        return assetBundleVariant;
+    }
+    /// <summary>
+    /// 判断是不是固定打包资源 
+    /// </summary>
+    /// <returns><c>true</c>, if fixed build asset was ised, <c>false</c> otherwise.</returns>
+    /// <param name="path">相对地址.</param>
+    static bool isFixedBuildAsset(string path)
 	{
 		if (path.IndexOf (PathUtils.GetRelativePath(buildRootPath,Application.dataPath)) == -1) 
 		{

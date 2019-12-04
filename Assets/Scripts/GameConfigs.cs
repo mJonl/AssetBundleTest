@@ -76,8 +76,8 @@ public static class GameConfigs
     }
 
     //ui预制体路径
-    public static string GetUIPath(string prefabName) {
-        string str = "/Prefabs/UI/" + prefabName;
+    public static string GetPrefabsPath(string prefabName) {
+        string str = "/Prefabs/" + prefabName;
         if (LoadAssetMode != FoxGame.Asset.AssetLoadMode.Editor) {
             str = str.ToLower();
         } else {
@@ -99,7 +99,7 @@ public static class GameConfigs
 
     //图集路径
     public static string GetSpriteAtlasPath(string name) {
-        string str = "/Atlas/" + name;
+        string str = "/Textures/Atlas/" + name;
         if (LoadAssetMode != FoxGame.Asset.AssetLoadMode.Editor) {
             str = str.ToLower();
         } else {

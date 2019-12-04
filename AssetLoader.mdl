@@ -926,6 +926,8 @@
 	statemachine 	(object State_Machine "State/Activity Model"
 	    quid       	"5DBF920C00A9"
 	    states     	(list States
+		(object ActivityState "打整包开始"
+		    quid       	"5DBF926F02D8")
 		(object ActivityState "清空服务器目录，只更新版本号"
 		    quid       	"5DBF937A003D")
 		(object ActivityState "分别拷贝进备份目录和服务器 上"
@@ -940,6 +942,12 @@
 		    quid       	"5DBF976A031B")
 		(object ActivityState "清空persisitentDataPath"
 		    quid       	"5DBF97B002EA")
+		(object ActivityState "获取所有的固定打包文件"
+		    quid       	"5DCD23C003B7")
+		(object ActivityState "新建所有AssetBundleBuild 的列表"
+		    quid       	"5DCD243E00DA")
+		(object ActivityState "创建StreamAsset目录"
+		    quid       	"5DCD253F0373")
 		(object ActivityState "BuildAssetBundles"
 		    quid       	"5DCD25590367")
 		(object ActivityState "打包完毕"
@@ -959,17 +967,7 @@
 		(object ActivityState "更新本地manifest"
 		    quid       	"5DCE023D02B8")
 		(object ActivityState "获取需要下载的文件列表"
-		    quid       	"5DCE028402C1")
-		(object ActivityState "设置打包入口目录Resources"
-		    quid       	"5DDA75E40102")
-		(object Decision "是Image文件夹"
-		    quid       	"5DDA7E7F03A7")
-		(object ActivityState "遍历文件夹，每个文件夹名作为AssetBundleName，Image作为后缀"
-		    quid       	"5DDA7E9B01A6")
-		(object ActivityState "NewActivity"
-		    quid       	"5DDA7F2F0265")
-		(object Decision "$UNNAMED$12"
-		    quid       	"5DDA80340273"))
+		    quid       	"5DCE028402C1"))
 	    partitions 	(list Partitions)
 	    objects    	(list Objects)
 	    transitions 	(list transition_list
@@ -1030,6 +1028,38 @@
 			quid       	"5DBF97E600D5")
 		    sendEvent  	(object sendEvent
 			quid       	"5DBF97E600D7"))
+		(object State_Transition
+		    quid       	"5DCD23E2004F"
+		    supplier   	"Logical View::State/Activity Model::获取所有的固定打包文件"
+		    supplier_quidu 	"5DCD23C003B7"
+		    client     	"Logical View::State/Activity Model::打整包开始"
+		    client_quidu 	"5DBF926F02D8"
+		    sendEvent  	(object sendEvent
+			quid       	"5DCD23E20052"))
+		(object State_Transition
+		    quid       	"5DCD246A018F"
+		    supplier   	"Logical View::State/Activity Model::新建所有AssetBundleBuild 的列表"
+		    supplier_quidu 	"5DCD243E00DA"
+		    client     	"Logical View::State/Activity Model::获取所有的固定打包文件"
+		    client_quidu 	"5DCD23C003B7"
+		    sendEvent  	(object sendEvent
+			quid       	"5DCD246A0192"))
+		(object State_Transition
+		    quid       	"5DCD2556001F"
+		    supplier   	"Logical View::State/Activity Model::创建StreamAsset目录"
+		    supplier_quidu 	"5DCD253F0373"
+		    client     	"Logical View::State/Activity Model::新建所有AssetBundleBuild 的列表"
+		    client_quidu 	"5DCD243E00DA"
+		    sendEvent  	(object sendEvent
+			quid       	"5DCD25560022"))
+		(object State_Transition
+		    quid       	"5DCD256A0248"
+		    supplier   	"Logical View::State/Activity Model::BuildAssetBundles"
+		    supplier_quidu 	"5DCD25590367"
+		    client     	"Logical View::State/Activity Model::创建StreamAsset目录"
+		    client_quidu 	"5DCD253F0373"
+		    sendEvent  	(object sendEvent
+			quid       	"5DCD256A024B"))
 		(object State_Transition
 		    quid       	"5DCD25B101B8"
 		    supplier   	"Logical View::State/Activity Model::打包完毕"
@@ -1123,26 +1153,7 @@
 		    client     	"Logical View::State/Activity Model::更新本地manifest"
 		    client_quidu 	"5DCE023D02B8"
 		    sendEvent  	(object sendEvent
-			quid       	"5DCE028A026A"))
-		(object State_Transition
-		    quid       	"5DDA7E900015"
-		    supplier   	"Logical View::State/Activity Model::是Image文件夹"
-		    supplier_quidu 	"5DDA7E7F03A7"
-		    client     	"Logical View::State/Activity Model::设置打包入口目录Resources"
-		    client_quidu 	"5DDA75E40102"
-		    sendEvent  	(object sendEvent
-			quid       	"5DDA7E900018"))
-		(object State_Transition
-		    quid       	"5DDA7EFE02F5"
-		    label      	""
-		    supplier   	"Logical View::State/Activity Model::遍历文件夹，每个文件夹名作为AssetBundleName，Image作为后缀"
-		    supplier_quidu 	"5DDA7E9B01A6"
-		    client     	"Logical View::State/Activity Model::是Image文件夹"
-		    client_quidu 	"5DDA7E7F03A7"
-		    Event      	(object Event "是"
-			quid       	"5DDA7EFE02F6")
-		    sendEvent  	(object sendEvent
-			quid       	"5DDA7EFE02F8")))
+			quid       	"5DCE028A026A")))
 	    objectflows 	(list objectflow_list)
 	    statediagrams 	(list StateDiagrams
 		(object ActivityDiagram "AssDig"
@@ -1157,7 +1168,35 @@
 			(object Swimlane "" @1
 			    line_color 	3342489
 			    width      	450)
-			(object ActivityStateView "点击app" @2
+			(object ActivityStateView "打整包开始" @2
+			    Parent_View 	@1
+			    location   	(812, 269)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(812, 272)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"打整包开始")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5DBF926F02D8"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object ActivityStateView "点击app" @3
 			    Parent_View 	@1
 			    location   	(2350, 320)
 			    font       	(object Font
@@ -1170,7 +1209,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@2
+				Parent_View 	@3
 				location   	(2350, 323)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1185,7 +1224,7 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object DecisionView "Android系统判断版本号是否需要更新整包" @3
+			(object DecisionView "Android系统判断版本号是否需要更新整包" @4
 			    Parent_View 	@1
 			    location   	(2354, 593)
 			    font       	(object Font
@@ -1197,8 +1236,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @4
-				Parent_View 	@3
+			    label      	(object SegLabel @5
+				Parent_View 	@4
 				location   	(1988, 509)
 				font       	(object Font
 				    size       	10
@@ -1222,18 +1261,18 @@
 			    fill_color 	13434879
 			    quidu      	"5DBF96CF0332"
 			    autoResize 	TRUE)
-			(object TransView "" @5
+			(object TransView "" @6
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DBF974C03D8"
-			    client     	@2
-			    supplier   	@3
+			    client     	@3
+			    supplier   	@4
 			    vertices   	(list Points
 				(2350, 373)
 				(2354, 556))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "跳转到平台去下载最新apk" @6
+			(object ActivityStateView "跳转到平台去下载最新apk" @7
 			    Parent_View 	@1
 			    location   	(3185, 832)
 			    font       	(object Font
@@ -1246,7 +1285,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@6
+				Parent_View 	@7
 				location   	(3185, 835)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1262,7 +1301,7 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object ActivityStateView "清空persisitentDataPath" @7
+			(object ActivityStateView "清空persisitentDataPath" @8
 			    Parent_View 	@1
 			    location   	(3184, 587)
 			    font       	(object Font
@@ -1275,7 +1314,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@7
+				Parent_View 	@8
 				location   	(3184, 590)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1291,7 +1330,7 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @8
+			(object TransView "" @9
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1301,8 +1340,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @9
-				Parent_View 	@8
+			    label      	(object SegLabel @10
+				Parent_View 	@9
 				location   	(2704, 546)
 				font       	(object Font
 				    size       	10
@@ -1324,27 +1363,27 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DBF97CB00B4"
-			    client     	@3
-			    supplier   	@7
+			    client     	@4
+			    supplier   	@8
 			    vertices   	(list Points
 				(2429, 593)
 				(2978, 588))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object TransView "" @10
+			(object TransView "" @11
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DBF97CE02BC"
-			    client     	@7
-			    supplier   	@6
+			    client     	@8
+			    supplier   	@7
 			    vertices   	(list Points
 				(3184, 639)
 				(3184, 779))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "打包完毕" @11
+			(object ActivityStateView "获取所有的固定打包文件" @12
 			    Parent_View 	@1
-			    location   	(1769, 1290)
+			    location   	(812, 503)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1355,8 +1394,167 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@11
-				location   	(1769, 1293)
+				Parent_View 	@12
+				location   	(812, 506)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	320
+				justify    	0
+				label      	"获取所有的固定打包文件")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5DCD23C003B7"
+			    width      	426
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @13
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5DCD23E2004F"
+			    client     	@2
+			    supplier   	@12
+			    vertices   	(list Points
+				(812, 322)
+				(812, 450))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "新建所有AssetBundleBuild 的列表" @14
+			    Parent_View 	@1
+			    location   	(810, 657)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@14
+				location   	(810, 660)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	504
+				justify    	0
+				label      	"新建所有AssetBundleBuild 的列表")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5DCD243E00DA"
+			    width      	610
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @15
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5DCD246A018F"
+			    client     	@12
+			    supplier   	@14
+			    vertices   	(list Points
+				(811, 555)
+				(810, 604))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "创建StreamAsset目录" @16
+			    Parent_View 	@1
+			    location   	(815, 883)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@16
+				location   	(815, 886)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	358
+				justify    	0
+				label      	"创建StreamAsset目录")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5DCD253F0373"
+			    width      	464
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @17
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5DCD2556001F"
+			    client     	@14
+			    supplier   	@16
+			    vertices   	(list Points
+				(811, 709)
+				(813, 829))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "BuildAssetBundles" @18
+			    Parent_View 	@1
+			    location   	(818, 1141)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@18
+				location   	(818, 1144)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	269
+				justify    	0
+				label      	"BuildAssetBundles")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"5DCD25590367"
+			    height     	106
+			    annotation 	1
+			    autoResize 	TRUE)
+			(object TransView "" @19
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5DCD256A0248"
+			    client     	@16
+			    supplier   	@18
+			    vertices   	(list Points
+				(815, 935)
+				(817, 1088))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "打包完毕" @20
+			    Parent_View 	@1
+			    location   	(815, 1357)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@20
+				location   	(815, 1360)
 				fill_color 	13434879
 				anchor_loc 	1
 				nlines     	2
@@ -1370,9 +1568,20 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object ActivityStateView "拷贝到服务器端，更新服务器版本号和游戏版本号一致" @12
+			(object TransView "" @21
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"5DCD25B101B8"
+			    client     	@18
+			    supplier   	@20
+			    vertices   	(list Points
+				(817, 1193)
+				(815, 1304))
+			    line_style 	0
+			    x_offset   	FALSE)
+			(object ActivityStateView "拷贝到服务器端，更新服务器版本号和游戏版本号一致" @22
 			    Parent_View 	@1
-			    location   	(1688, 1559)
+			    location   	(815, 1549)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1383,8 +1592,8 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@12
-				location   	(1688, 1562)
+				Parent_View 	@22
+				location   	(815, 1552)
 				fill_color 	13434879
 				anchor_loc 	1
 				nlines     	2
@@ -1399,18 +1608,18 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @13
+			(object TransView "" @23
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD25DF01C7"
-			    client     	@11
-			    supplier   	@12
+			    client     	@20
+			    supplier   	@22
 			    vertices   	(list Points
-				(1753, 1342)
-				(1703, 1505))
+				(815, 1410)
+				(815, 1496))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object DecisionView "是否第一次进入游戏" @14
+			(object DecisionView "是否第一次进入游戏" @24
 			    Parent_View 	@1
 			    location   	(2344, 825)
 			    font       	(object Font
@@ -1422,8 +1631,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @15
-				Parent_View 	@14
+			    label      	(object SegLabel @25
+				Parent_View 	@24
 				location   	(2244, 700)
 				font       	(object Font
 				    size       	10
@@ -1447,29 +1656,29 @@
 			    fill_color 	13434879
 			    quidu      	"5DCD283001B8"
 			    autoResize 	TRUE)
-			(object TransView "" @16
+			(object TransView "" @26
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2843023F"
-			    client     	@3
-			    supplier   	@14
+			    client     	@4
+			    supplier   	@24
 			    vertices   	(list Points
 				(2354, 630)
 				(2344, 788))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object TransView "" @17
+			(object TransView "" @27
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2AC402EF"
-			    client     	@6
-			    supplier   	@14
+			    client     	@7
+			    supplier   	@24
 			    vertices   	(list Points
 				(3001, 830)
 				(2419, 825))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "复制StreamAsset到perSistemDataPath" @18
+			(object ActivityStateView "复制StreamAsset到perSistemDataPath" @28
 			    Parent_View 	@1
 			    location   	(1782, 808)
 			    font       	(object Font
@@ -1482,7 +1691,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@18
+				Parent_View 	@28
 				location   	(1782, 811)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1498,7 +1707,7 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @19
+			(object TransView "" @29
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1508,8 +1717,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @20
-				Parent_View 	@19
+			    label      	(object SegLabel @30
+				Parent_View 	@29
 				location   	(2136, 865)
 				font       	(object Font
 				    size       	10
@@ -1531,14 +1740,14 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD28AC00B7"
-			    client     	@14
-			    supplier   	@18
+			    client     	@24
+			    supplier   	@28
 			    vertices   	(list Points
 				(2269, 825)
 				(2005, 815))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "设置IsFirstlaunch标志为false" @21
+			(object ActivityStateView "设置IsFirstlaunch标志为false" @31
 			    Parent_View 	@1
 			    location   	(1772, 999)
 			    font       	(object Font
@@ -1551,7 +1760,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@21
+				Parent_View 	@31
 				location   	(1772, 1002)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1567,18 +1776,18 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @22
+			(object TransView "" @32
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2980032F"
-			    client     	@18
-			    supplier   	@21
+			    client     	@28
+			    supplier   	@31
 			    vertices   	(list Points
 				(1779, 860)
 				(1774, 946))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "加载本地 manifest文件" @23
+			(object ActivityStateView "加载本地 manifest文件" @33
 			    Parent_View 	@1
 			    location   	(2338, 1285)
 			    font       	(object Font
@@ -1591,7 +1800,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@23
+				Parent_View 	@33
 				location   	(2338, 1288)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1607,7 +1816,7 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @24
+			(object TransView "" @34
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1617,8 +1826,8 @@
 				strike     	FALSE
 				color      	0
 				default_color 	TRUE)
-			    label      	(object SegLabel @25
-				Parent_View 	@24
+			    label      	(object SegLabel @35
+				Parent_View 	@34
 				location   	(2386, 1048)
 				font       	(object Font
 				    size       	10
@@ -1640,25 +1849,25 @@
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2BF701D7"
-			    client     	@14
-			    supplier   	@23
+			    client     	@24
+			    supplier   	@33
 			    vertices   	(list Points
 				(2344, 862)
 				(2338, 1232))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object TransView "" @26
+			(object TransView "" @36
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2C0A0187"
-			    client     	@21
-			    supplier   	@23
+			    client     	@31
+			    supplier   	@33
 			    vertices   	(list Points
 				(1876, 1051)
 				(2233, 1231))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object NoteView @27
+			(object NoteView @37
 			    Parent_View 	@1
 			    location   	(3516, 1315)
 			    font       	(object Font
@@ -1671,7 +1880,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@27
+				Parent_View 	@37
 				location   	(3062, 1187)
 				fill_color 	13434879
 				nlines     	5
@@ -1682,16 +1891,16 @@
 			    fill_color 	13434879
 			    width      	932
 			    height     	269)
-			(object AttachView "" @28
+			(object AttachView "" @38
 			    stereotype 	TRUE
 			    line_color 	3342489
-			    client     	@23
-			    supplier   	@27
+			    client     	@33
+			    supplier   	@37
 			    vertices   	(list Points
 				(2545, 1290)
 				(3049, 1302))
 			    line_style 	0)
-			(object ActivityStateView "获取资源服务器端manifest" @29
+			(object ActivityStateView "获取资源服务器端manifest" @39
 			    Parent_View 	@1
 			    location   	(2336, 1507)
 			    font       	(object Font
@@ -1704,7 +1913,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@29
+				Parent_View 	@39
 				location   	(2336, 1510)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1720,18 +1929,18 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @30
+			(object TransView "" @40
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCD2C430259"
-			    client     	@23
-			    supplier   	@29
+			    client     	@33
+			    supplier   	@39
 			    vertices   	(list Points
 				(2337, 1338)
 				(2336, 1453))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "更新本地manifest" @31
+			(object ActivityStateView "更新本地manifest" @41
 			    Parent_View 	@1
 			    location   	(2323, 1677)
 			    font       	(object Font
@@ -1744,7 +1953,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@31
+				Parent_View 	@41
 				location   	(2323, 1680)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1759,18 +1968,18 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @32
+			(object TransView "" @42
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCE0244035F"
-			    client     	@29
-			    supplier   	@31
+			    client     	@39
+			    supplier   	@41
 			    vertices   	(list Points
 				(2331, 1560)
 				(2327, 1623))
 			    line_style 	0
 			    x_offset   	FALSE)
-			(object ActivityStateView "获取需要下载的文件列表" @33
+			(object ActivityStateView "获取需要下载的文件列表" @43
 			    Parent_View 	@1
 			    location   	(2301, 1880)
 			    font       	(object Font
@@ -1783,7 +1992,7 @@
 				color      	0
 				default_color 	TRUE)
 			    label      	(object ItemLabel
-				Parent_View 	@33
+				Parent_View 	@43
 				location   	(2301, 1883)
 				fill_color 	13434879
 				anchor_loc 	1
@@ -1799,229 +2008,17 @@
 			    height     	106
 			    annotation 	1
 			    autoResize 	TRUE)
-			(object TransView "" @34
+			(object TransView "" @44
 			    stereotype 	TRUE
 			    line_color 	3342489
 			    quidu      	"5DCE028A0267"
-			    client     	@31
-			    supplier   	@33
+			    client     	@41
+			    supplier   	@43
 			    vertices   	(list Points
 				(2317, 1730)
 				(2306, 1826))
 			    line_style 	0
-			    x_offset   	FALSE)
-			(object ActivityStateView "设置打包入口目录Resources" @35
-			    Parent_View 	@1
-			    location   	(468, 1164)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object ItemLabel
-				Parent_View 	@35
-				location   	(468, 1167)
-				fill_color 	13434879
-				anchor_loc 	1
-				nlines     	2
-				max_width  	348
-				justify    	0
-				label      	"设置打包入口目录Resources")
-			    icon_style 	"Icon"
-			    line_color 	3342489
-			    fill_color 	13434879
-			    quidu      	"5DDA75E40102"
-			    width      	454
-			    height     	106
-			    annotation 	1
-			    autoResize 	TRUE)
-			(object NoteView @36
-			    Parent_View 	@1
-			    location   	(644, 440)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object ItemLabel
-				Parent_View 	@36
-				location   	(125, 131)
-				fill_color 	13434879
-				nlines     	12
-				max_width  	1002
-				justify    	1
-				label      	
-|1.每个图片所在的文件夹用代码独立打个AssetBundle
-|2.尽量避免同一张图片对应不同的图集，避免同一张图片在不同的AssetBundle
-|3.每个预制体单独一个AssetBundle
-|4.每个材质球单独一个AssetBundle，材质球里的Texture都是一份独立的拷贝，所以A材质球与B材质球都是独立的，不能共享
-|5.代码每个文件夹一个AssetBundle
-				)
-			    line_color 	3342489
-			    fill_color 	13434879
-			    width      	1062
-			    height     	631)
-			(object DecisionView "是Image文件夹" @37
-			    Parent_View 	@1
-			    location   	(463, 1350)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object SegLabel @38
-				Parent_View 	@37
-				location   	(519, 1301)
-				font       	(object Font
-				    size       	10
-				    face       	"Arial"
-				    bold       	FALSE
-				    italics    	TRUE
-				    underline  	FALSE
-				    strike     	FALSE
-				    color      	0
-				    default_color 	TRUE)
-				anchor     	1
-				nlines     	1
-				max_width  	310
-				justify    	1
-				label      	"是Image文件夹"
-				pctDist    	1.000000
-				height     	0
-				orientation 	0)
-			    icon_style 	"Icon"
-			    line_color 	3342489
-			    fill_color 	13434879
-			    quidu      	"5DDA7E7F03A7"
-			    autoResize 	TRUE)
-			(object TransView "" @39
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"5DDA7E900015"
-			    client     	@35
-			    supplier   	@37
-			    vertices   	(list Points
-				(466, 1217)
-				(463, 1313))
-			    line_style 	0
-			    x_offset   	FALSE)
-			(object ActivityStateView "遍历文件夹，每个文件夹名作为AssetBundleName，Image作为后缀" @40
-			    Parent_View 	@1
-			    location   	(480, 1576)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object ItemLabel
-				Parent_View 	@40
-				location   	(480, 1579)
-				fill_color 	13434879
-				anchor_loc 	1
-				nlines     	2
-				max_width  	734
-				justify    	0
-				label      	"遍历文件夹，每个文件夹名作为AssetBundleName，Image作为后缀")
-			    icon_style 	"Icon"
-			    line_color 	3342489
-			    fill_color 	13434879
-			    quidu      	"5DDA7E9B01A6"
-			    width      	840
-			    height     	106
-			    annotation 	1
-			    autoResize 	TRUE)
-			(object TransView "" @41
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object SegLabel @42
-				Parent_View 	@41
-				location   	(514, 1453)
-				font       	(object Font
-				    size       	10
-				    face       	"Arial"
-				    bold       	FALSE
-				    italics    	FALSE
-				    underline  	FALSE
-				    strike     	FALSE
-				    color      	0
-				    default_color 	TRUE)
-				anchor_loc 	1
-				nlines     	1
-				max_width  	450
-				justify    	0
-				label      	"是"
-				pctDist    	0.500000
-				height     	45
-				orientation 	0)
-			    stereotype 	TRUE
-			    line_color 	3342489
-			    quidu      	"5DDA7EFE02F5"
-			    client     	@37
-			    supplier   	@40
-			    vertices   	(list Points
-				(463, 1387)
-				(475, 1523))
-			    line_style 	0
-			    x_offset   	FALSE)
-			(object ActivityStateView "NewActivity" @43
-			    Parent_View 	@1
-			    location   	(484, 2032)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    label      	(object ItemLabel
-				Parent_View 	@43
-				location   	(484, 2035)
-				fill_color 	13434879
-				anchor_loc 	1
-				nlines     	2
-				max_width  	269
-				justify    	0
-				label      	"NewActivity")
-			    icon_style 	"Icon"
-			    line_color 	3342489
-			    fill_color 	13434879
-			    quidu      	"5DDA7F2F0265"
-			    height     	106
-			    annotation 	1
-			    autoResize 	TRUE)
-			(object DecisionView "$UNNAMED$12" @44
-			    Parent_View 	@1
-			    location   	(491, 1807)
-			    icon_style 	"Icon"
-			    line_color 	3342489
-			    fill_color 	13434879
-			    quidu      	"5DDA80340273"
-			    autoResize 	TRUE)))
+			    x_offset   	FALSE)))
 		(object ActivityDiagram "NewDiagram"
 		    quid       	"5DCD22E40118"
 		    title      	"NewDiagram"
@@ -2041,7 +2038,7 @@
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
-		origin_x   	0
+		origin_x   	1256
 		origin_y   	1253
 		items      	(list diagram_item_list
 		    (object ClassView "Class" "Logical View::PathUtils" @46
@@ -2232,7 +2229,7 @@
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1692, 217)
+			location   	(1679, 295)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2244,7 +2241,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@51
-			    location   	(1691, 325)
+			    location   	(1678, 403)
 			    anchor_loc 	1
 			    nlines     	2
 			    max_width  	247
@@ -2257,7 +2254,7 @@
 			quidu      	"5DBC310D01EC"
 			compartment 	(object Compartment
 			    Parent_View 	@51
-			    location   	(1496, 366)
+			    location   	(1483, 444)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2305,7 +2302,7 @@
 			quidu      	"5DBD109801A3"
 			compartment 	(object Compartment
 			    Parent_View 	@52
-			    location   	(519, 194)
+			    location   	(524, 194)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2380,7 +2377,7 @@
 			supplier   	@52
 			vertices   	(list Points
 			    (582, 465)
-			    (663, 178))
+			    (632, 293))
 			line_style 	0)
 		    (object ClassView "Class" "Logical View::UpdateAssetManager" @55
 			ShowCompartmentStereotypes 	TRUE
@@ -2825,8 +2822,8 @@
 			client     	@68
 			supplier   	@51
 			vertices   	(list Points
-			    (2060, 983)
-			    (1832, 515))
+			    (2047, 983)
+			    (1835, 593))
 			line_style 	0)
 		    (object ClassView "Class" "Logical View::EditorAssetLoader" @71
 			ShowCompartmentStereotypes 	TRUE
@@ -2883,8 +2880,8 @@
 			client     	@71
 			supplier   	@51
 			vertices   	(list Points
-			    (2123, 621)
-			    (1885, 397))
+			    (2095, 621)
+			    (1872, 447))
 			line_style 	0)
 		    (object ClassView "Class" "Logical View::AssetManager" @73
 			ShowCompartmentStereotypes 	TRUE
