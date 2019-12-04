@@ -161,8 +161,9 @@ public class BuildAssetBundles {
 	static string GetAssetBundleNameWithPath(string path)
 	{
 		string p = Path.GetDirectoryName (path)+ "/" + Path.GetFileNameWithoutExtension (path);
-		//判断是依赖资源还是固定资源
-		if(!isFixedBuildAsset(p))
+        p = p.Replace(@"\", "/");
+        //判断是依赖资源还是固定资源
+        if (!isFixedBuildAsset(p))
 		{
 			p = PathUtils.ReplaceFirst(p,"Assets","Dependencie");
 			//p = p.Replace ("Assets","Dependencie");
