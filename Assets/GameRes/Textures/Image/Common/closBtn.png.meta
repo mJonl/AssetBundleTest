@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/closBtn.png.meta
 guid: a9f77ecd82f60744485e8bb77f4a89f5
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 9
+=======
+guid: 5e3c59177f3f6c3419e7fdbf9d0d1f60
+TextureImporter:
+  fileIDToRecycleName: {}
+  externalObjects: {}
+  serializedVersion: 4
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_11.png.meta
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -21,8 +29,6 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
-  streamingMipmaps: 0
-  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +39,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -100
+    mipBias: -1
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -53,13 +59,16 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
-  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
+<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/closBtn.png.meta
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
+=======
+  - buildTarget: DefaultTexturePlatform
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_11.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -69,8 +78,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/closBtn.png.meta
   - serializedVersion: 2
     buildTarget: Standalone
+=======
+  - buildTarget: Standalone
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_11.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -80,8 +93,12 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/closBtn.png.meta
   - serializedVersion: 2
     buildTarget: Android
+=======
+  - buildTarget: Android
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_11.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -96,15 +113,16 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape: []
+<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/closBtn.png.meta
     bones: []
     spriteID: f66a63e1223754d44baa369a37620106
     vertices: []
     indices: 
     edges: []
     weights: []
+=======
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_11.png.meta
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,17 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/boss_blood.png.meta
-guid: 8edee4280500dad4b8275e4c2dc2e542
+guid: c785b6ee2d1312640846e7ab6c75eb8a
 TextureImporter:
-  fileIDToRecycleName: {}
+  internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 9
-=======
-guid: f8bcf7bfca744014bbc064dd6024162b
-TextureImporter:
-  fileIDToRecycleName: {}
-  externalObjects: {}
-  serializedVersion: 4
->>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_10.png.meta
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -29,6 +21,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -39,7 +33,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: -1
@@ -59,16 +53,13 @@ TextureImporter:
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/boss_blood.png.meta
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-=======
-  - buildTarget: DefaultTexturePlatform
->>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_10.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -78,12 +69,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/boss_blood.png.meta
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
-=======
-  - buildTarget: Standalone
->>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_10.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -93,12 +81,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/boss_blood.png.meta
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
-=======
-  - buildTarget: Android
->>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_10.png.meta
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -108,21 +93,23 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
-<<<<<<< HEAD:Assets/GameRes/Textures/Image/Common/boss_blood.png.meta
     bones: []
-    spriteID: 9de6ae2c2bc1e4548a1274daef14b477
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-=======
->>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI/icon_10.png.meta
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

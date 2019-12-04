@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/GameRes/Sences_1/Materials.meta
 guid: ce1992aa53d05a84582691ed0baa8483
+=======
+guid: 303c8a78803667940bdc51ee6b47c6f5
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/AtlasRes/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

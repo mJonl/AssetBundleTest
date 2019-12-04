@@ -50,7 +50,6 @@ public class BuildAssetBundles {
         //Directory.GetDirectories(exportPath).ToList().ForEach(Directory.Delete);
         Directory.Delete(exportPath, true);
         Debug.Log("清理完成!");
-        
     }
 
     [MenuItem("AssetBuild/清理win端本地目录数据")]
@@ -162,9 +161,8 @@ public class BuildAssetBundles {
 	static string GetAssetBundleNameWithPath(string path)
 	{
 		string p = Path.GetDirectoryName (path)+ "/" + Path.GetFileNameWithoutExtension (path);
-        p = PathUtils.NormalizePath(p);
-        //判断是依赖资源还是固定资源
-        if (!isFixedBuildAsset(p))
+		//判断是依赖资源还是固定资源
+		if(!isFixedBuildAsset(p))
 		{
 			p = PathUtils.ReplaceFirst(p,"Assets","Dependencie");
 			//p = p.Replace ("Assets","Dependencie");

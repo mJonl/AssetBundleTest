@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/GameRes/Sences_1/Textures.meta
 guid: 31f7a3453752ad74892de6a996527474
+=======
+guid: 49caecb13dcb8a84a914a5617c909f2f
+>>>>>>> 39b7362c60895d70e3247557e02e60fb867cc450:Assets/GameRes/Scenes.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

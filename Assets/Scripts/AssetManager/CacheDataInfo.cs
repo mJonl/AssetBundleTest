@@ -13,7 +13,6 @@ namespace FoxGame.Asset
         public CacheDataInfo(string name,Object obj) {
             CacheName = name;
             CacheObj = obj;
-            StartTick = 0;
         }
 
         //刷新进入缓冲区时间

@@ -35,7 +35,7 @@ namespace FoxGame.Asset
             editorLoader = new EditorAssetLoader();
             abLoader = new AssetBundleLoader(GameConfigs.LocalABRootPath, GameConfigs.LocalManifestPath);
         }
-        
+
         //同步加载
         public T LoadAsset<T>(string path) where T : Object {
             CacheDataInfo info = queryCache(path);
@@ -62,9 +62,7 @@ namespace FoxGame.Asset
                 if (onLoadComplate != null) {
                     onLoadComplate(info.CacheObj as T);
                 }
-            } 
-            else 
-            {
+            } else {
                 switch (LoadMode) {
                     case AssetLoadMode.Editor:
                         StartCoroutine(editorLoader.LoadAssetAsync<T>(path, onLoadComplate));
