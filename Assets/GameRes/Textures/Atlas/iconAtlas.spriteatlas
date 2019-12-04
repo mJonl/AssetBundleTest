@@ -29,67 +29,11 @@ SpriteAtlas:
       enableRotation: 1
       enableTightPacking: 0
     variantMultiplier: 1
-    packables:
-    - {fileID: 102900000, guid: 25b503fc7b567f147800c16915d0c170, type: 3}
-    totalSpriteSurfaceArea: 353524
+    packables: []
+    totalSpriteSurfaceArea: 0
     bindAsDefault: 1
-    storedHash:
-      serializedVersion: 2
-      Hash: 3450ae26449c7269e85a7ee6b2d73a9d
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: 1d57f8602e5f539429df8807a9beb050, type: 3}
-  - {fileID: 21300000, guid: b5f7f690da9bf344b97ebf24eca7b8dc, type: 3}
-  - {fileID: 21300000, guid: 25e7fdb0ef6eb0b48a81587be367c997, type: 3}
-  - {fileID: 21300000, guid: 8a22a102758810c41b1cc289805d394a, type: 3}
-  - {fileID: 21300000, guid: 12a2248265ef5ec41b5901b9d767d49f, type: 3}
-  - {fileID: 21300000, guid: 6a5f1782c6334d34c995556250fb8351, type: 3}
-  - {fileID: 21300000, guid: 9e633043a9be16f4b9d750ad5ffdb642, type: 3}
-  - {fileID: 21300000, guid: 8f89a973c0c916f4a8879e02a505b9e7, type: 3}
-  - {fileID: 21300000, guid: e20002948c9cd89428ca6f9be45d0edb, type: 3}
-  - {fileID: 21300000, guid: 2efd1ac4409bc3b42a89bc4405756468, type: 3}
-  - {fileID: 21300000, guid: a75c7275864c3a749887cafd3fa59da9, type: 3}
-  - {fileID: 21300000, guid: 56f19e57a6256a8428a11898808df9d3, type: 3}
-  - {fileID: 21300000, guid: a094a1f7c47acb942a24ca26daea897a, type: 3}
-  - {fileID: 21300000, guid: 7b305928edf62224593322bd7e525aa7, type: 3}
-  - {fileID: 21300000, guid: bcb4cbb826d8cbd43b15f241e3d16a2a, type: 3}
-  - {fileID: 21300000, guid: b574c27aa3e333443a47b3889cf91844, type: 3}
-  - {fileID: 21300000, guid: 0d57668ae24b0984180385d4414b7071, type: 3}
-  - {fileID: 21300000, guid: 8d08b90b05e23f04b98ba01b97f32669, type: 3}
-  - {fileID: 21300000, guid: 0571f52bfb563d6468f3a414e146c848, type: 3}
-  - {fileID: 21300000, guid: 0ccd0bcb82a5f6d449db46a548683d50, type: 3}
-  - {fileID: 21300000, guid: 2c86d27c5be9e52469035390419a3c6a, type: 3}
-  - {fileID: 21300000, guid: d0e60a5d041db2c4da606392f95986b1, type: 3}
-  - {fileID: 21300000, guid: af92a0adf0b3d0b4b9249ac9db70e245, type: 3}
-  - {fileID: 21300000, guid: 63bdf22ef00df51418b3135791aa8e5c, type: 3}
-  - {fileID: 21300000, guid: ea4d465ec324d9e4c8cfaba949a42186, type: 3}
-  - {fileID: 21300000, guid: ed8f39fe44722024b99169c17a8bbd68, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - e_401
-  - skill2002
-  - w_1007
-  - e_601
-  - kuang1
-  - w_1008
-  - skill2001
-  - w_1004
-  - e_301
-  - w_1003
-  - e_103
-  - w_1001
-  - kuang4
-  - e_501
-  - kuang5
-  - w_1011
-  - w_1009
-  - w_1006
-  - kuang3
-  - kuang2
-  - e_101
-  - w_1010
-  - e_102
-  - w_1005
-  - w_1002
-  - e_201
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_Tag: iconAtlas
   m_IsVariant: 0

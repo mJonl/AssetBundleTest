@@ -29,33 +29,11 @@ SpriteAtlas:
       enableRotation: 1
       enableTightPacking: 0
     variantMultiplier: 1
-    packables:
-    - {fileID: 102900000, guid: 4b9540b21d9350746bd5aecc995b2859, type: 3}
-    totalSpriteSurfaceArea: 42776
+    packables: []
+    totalSpriteSurfaceArea: 0
     bindAsDefault: 1
-    storedHash:
-      serializedVersion: 2
-      Hash: b0a0462f8ceee5ca13eb18f9b457ccd7
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: cc4579c2d9e12304196465589439b1f7, type: 3}
-  - {fileID: 21300000, guid: 2f9c8bd32e2b6334dbb8ecf4098ca52d, type: 3}
-  - {fileID: 21300000, guid: 4ad92005f928ce741b629a4c83494b46, type: 3}
-  - {fileID: 21300000, guid: b88d7426d6940ae469f216f2932a5fe8, type: 3}
-  - {fileID: 21300000, guid: 9836697852dbe304e9cfa0313efa9ab0, type: 3}
-  - {fileID: 21300000, guid: 1ce4cff8952444d4fb98f8809672a2a5, type: 3}
-  - {fileID: 21300000, guid: 916b379bf91121146b9b4d8f172facc7, type: 3}
-  - {fileID: 21300000, guid: 51d87cdc9b61cd04ca7faabc6de159e9, type: 3}
-  - {fileID: 21300000, guid: 7e6fe73e992b899408dc30f53eaaeae4, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - wenhao
-  - topBg
-  - greenBtn
-  - bottomBg
-  - yelloBtn
-  - popKuang
-  - kongKuang
-  - sBtn1
-  - sBtn2
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_Tag: playerAtlas
   m_IsVariant: 0

@@ -22,9 +22,9 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
 
     IEnumerator progress(UnityAction onComplete) {
         //第一次进入游戏 把streamingassets文件夹数据解压缩到指定的下载目录
-        if(true || PlayerPrefs.GetString("IsFirstLaunch","true") == "true") {
-            yield return StartCoroutine(streamingAssetfolderCopyToDownloadFolder());
-        }
+        //if(true || PlayerPrefs.GetString("IsFirstLaunch","true") == "true") {
+          //  yield return StartCoroutine(streamingAssetfolderCopyToDownloadFolder());
+        //}
 
         // 加载本地 manifest文件
         if (File.Exists(GameConfigs.LocalManifestPath)) {
