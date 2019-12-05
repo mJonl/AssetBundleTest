@@ -76,9 +76,9 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
            Img.sprite = p;
         });
 
-        // AssetManager.Instance.LoadAssetAsync<GameObject>(GameConfigs.GetPrefabsPath("Cube"), (GameObject sp) => {
-           // GameObject.Instantiate(sp);
-         //});
+         AssetManager.Instance.LoadAssetAsync<GameObject>(GameConfigs.GetPrefabsPath("Cube.pre"), (GameObject sp) => {
+            GameObject.Instantiate(sp);
+         });
         
     }
 }

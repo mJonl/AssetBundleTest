@@ -152,4 +152,12 @@ public class PathUtils {
         str = str.Insert(i, newValue);
         return str;
     }
+    //获取文件所在的文件夹
+    public static string GetDircByFileName(string path)
+    {
+        string p = Path.GetDirectoryName(path);
+        return p.Replace(@"\", "/");
+        //int tmpIndex = p.LastIndexOf("/");
+       // return p.Substring(0, tmpIndex); //可截取替换字符串
+    }
 }

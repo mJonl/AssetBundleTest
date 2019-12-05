@@ -9,12 +9,12 @@ using UnityEngine.Networking;
 using System.IO;
 using UnityEngine.Events;
 
-public class UpdateAssetManager:MonoSingleton<UpdateAssetManager> 
+public class UpdateAssetManager : MonoSingleton<UpdateAssetManager>
 {
     private AssetBundleManifest curManifest;
     private AssetBundleManifest onlineManifest;
 
-    public void CheckAsset(UnityAction onComplete =null) {
+    public void CheckAsset(UnityAction onComplete = null) {
         MsgDispatcher.GetInstance().Fire(GameEvents.Msg_ShowLoadingContent, "检测资源...");
         StartCoroutine(progress(onComplete));
     }
@@ -22,9 +22,9 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
 
     IEnumerator progress(UnityAction onComplete) {
         //第一次进入游戏 把streamingassets文件夹数据解压缩到指定的下载目录
-        //if(true || PlayerPrefs.GetString("IsFirstLaunch","true") == "true") {
-          //  yield return StartCoroutine(streamingAssetfolderCopyToDownloadFolder());
-        //}
+        if (true || PlayerPrefs.GetString("IsFirstLaunch", "true") == "true") {
+            yield return StartCoroutine(streamingAssetfolderCopyToDownloadFolder());
+        }
 
         // 加载本地 manifest文件
         if (File.Exists(GameConfigs.LocalManifestPath)) {
@@ -36,7 +36,7 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
         }
 
         //获取资源服务器端manifest
-        Debug.Log("获取资源服务器资源manifest :"+ GameConfigs.OnlineManifestPath);
+        Debug.Log("获取资源服务器资源manifest :" + GameConfigs.OnlineManifestPath);
         MsgDispatcher.GetInstance().Fire(GameEvents.Msg_ShowLoadingContent, "检测是否更新资源...");
 
         UnityWebRequest webReq = UnityWebRequest.Get(GameConfigs.OnlineManifestPath);
@@ -45,7 +45,7 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
         if (webReq.isNetworkError || webReq.isHttpError) {
             Debug.Log(webReq.error);
         } else {
-            if(webReq.responseCode == 200) {
+            if (webReq.responseCode == 200) {
                 byte[] result = webReq.downloadHandler.data;
                 AssetBundle onlineManifestAB = AssetBundle.LoadFromMemory(result);
                 onlineManifest = onlineManifestAB.LoadAsset<AssetBundleManifest>("AssetBundlemanifest");
@@ -62,7 +62,39 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
         }
 
     }
-   
+    private static bool CopyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)
+    {
+        bool ret = false;
+        try
+        {
+           // SourcePath = SourcePath.EndsWith(@"\") ? SourcePath : SourcePath + @"\";
+            //DestinationPath = DestinationPath.EndsWith(@"\") ? DestinationPath : DestinationPath + @"\";
+
+            if (Directory.Exists(SourcePath))
+            {
+                if (Directory.Exists(DestinationPath) == false)
+                    Directory.CreateDirectory(DestinationPath);
+
+                foreach (string fls in Directory.GetFiles(SourcePath))
+                {
+                    FileInfo flinfo = new FileInfo(fls);
+                    flinfo.CopyTo(DestinationPath + flinfo.Name, overwriteexisting);
+                }
+                foreach (string drs in Directory.GetDirectories(SourcePath))
+                {
+                    DirectoryInfo drinfo = new DirectoryInfo(drs);
+                    if (CopyDirectory(drs, DestinationPath + drinfo.Name, overwriteexisting) == false)
+                        ret = false;
+                }
+            }
+            ret = true;
+        }
+        catch (Exception ex)
+        {
+            ret = false;
+        }
+        return ret;
+    }
     // streamingAsset文件夹数据解压缩到下载文件夹
     IEnumerator streamingAssetfolderCopyToDownloadFolder() {
         Debug.Log("初次运行,解压缩包数据到本地下载文件夹!");
@@ -78,10 +110,19 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
             var list = PathUtils.GetFilesPath(GameConfigs.GameResExportPath);
             int total = list.Length;
             int count = 0;
+           
+            
+            
             foreach (var iter in list) {
                 string srcPath = iter;
                 string tarPath = iter.Replace(GameConfigs.GameResExportPath, GameConfigs.LocalABRootPath);
-
+                string tarDicr = PathUtils.GetDircByFileName(tarPath);
+                if (Directory.Exists(tarDicr) == false)
+                    Directory.CreateDirectory(tarDicr);
+                File.Copy(iter, tarPath, true);
+                yield return null;
+                Debug.LogFormat("->解压缩文件{0}到{1}成功", srcPath, tarPath);
+                /*
                 UnityWebRequest req = UnityWebRequest.Get(srcmanifestpath);
                 yield return req.SendWebRequest();
 
@@ -101,13 +142,14 @@ public class UpdateAssetManager:MonoSingleton<UpdateAssetManager>
                 }
                 count++;
                 MsgDispatcher.GetInstance().Fire(GameEvents.Msg_DownloadProgress, string.Format("解压缩包数据...({0}/{1})",count,total));
+                
+        */}
 
-            }
-
-        } else {
+        }
+        else {
             Debug.Log("无需解压缩!");
         }
-        
+
 
 
         //// way 2
