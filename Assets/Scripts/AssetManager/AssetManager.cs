@@ -4,10 +4,13 @@ using FoxGame;
 using UnityEngine.Events;
 using System.Linq;
 using Object = UnityEngine.Object;
+using System;
+using UnityEngine.U2D;
 
 namespace FoxGame.Asset
 {
 
+    
     //资源管理器 (资源管理器 仅会把资源加载入内存)
     public class AssetManager : MonoSingleton<AssetManager>
     {
@@ -17,7 +20,7 @@ namespace FoxGame.Asset
         public float ClearCacheDuration;
         [Header("缓存数据驻留时间(秒)")]
         public float CacheDataStayTime;
-
+        Func<SpriteAtlas, string, Sprite> mySpriteFunc = delegate (SpriteAtlas sp, string strName) { return sp.GetSprite(strName); };
         private IAssetLoader editorLoader;
         private IAssetLoader abLoader;
 
@@ -53,6 +56,19 @@ namespace FoxGame.Asset
             }
         }
 
+        //异步加载图集
+        public Sprite LoadAssetAsyncSprite(string path, SpriteAtlas spratl, string strName)
+        {
+            CacheDataInfo info = queryCache(path);
+            if (info != null)
+            {
+                info.UpdateTick();
+                return info.CacheObj as Sprite;
+
+            }
+           
+            return null;
+        }
         //异步加载
         public void LoadAssetAsync<T>(string path, UnityAction<T> onLoadComplate) where T : Object {
 

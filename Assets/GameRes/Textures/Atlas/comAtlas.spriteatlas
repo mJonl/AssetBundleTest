@@ -31,8 +31,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: c6c88a0b34c0a934999fd6e201e3303d, type: 3}
-    totalSpriteSurfaceArea: 176596
+    totalSpriteSurfaceArea: 182928
     bindAsDefault: 1
+    storedHash:
+      serializedVersion: 2
+      Hash: c06735b0a6504451f915be1d8d3f0b20
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: ff8a2b61915355248897b87e2ff50333, type: 3}
@@ -44,6 +47,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 55f426f40c596d94d8d82a75a6042f1b, type: 3}
   - {fileID: 21300000, guid: 6880e3658b57c154da87298e340bffae, type: 3}
   - {fileID: 21300000, guid: 93e15b96aab3ea946b6d1fbf1a6aa53c, type: 3}
+  - {fileID: 21300000, guid: 8edee4280500dad4b8275e4c2dc2e542, type: 3}
   - {fileID: 21300000, guid: eac54878a3a86d64286c8e3898079a1d, type: 3}
   - {fileID: 21300000, guid: 1a521b39c939c854bb749f0a363d3fec, type: 3}
   - {fileID: 21300000, guid: 64b55f59196e7da45b67f9b2fa58165b, type: 3}
@@ -61,6 +65,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e801491dd5af7344e88936c0de362aac, type: 3}
   - {fileID: 21300000, guid: 8efbdc3d13469054bb307554d7f324bf, type: 3}
   - {fileID: 21300000, guid: 20002cad79ad3ca43a2f8b9abd4df065, type: 3}
+  - {fileID: 21300000, guid: a9f77ecd82f60744485e8bb77f4a89f5, type: 3}
+  - {fileID: 21300000, guid: faf0b98e03df64c4ea2faa9f840d4d35, type: 3}
   - {fileID: 21300000, guid: b01ecefeebbc545408892806e9bdb2e2, type: 3}
   - {fileID: 21300000, guid: d3d2ed4fcc5018747bb200154a0744b5, type: 3}
   - {fileID: 21300000, guid: 0aa0d3cf8ba90a54cbd0c54d022d0f25, type: 3}
@@ -74,6 +80,7 @@ SpriteAtlas:
   - btn2
   - mon_blood
   - bottomBtn1
+  - boss_blood
   - jsbq
   - diamond
   - expSlider
@@ -91,6 +98,8 @@ SpriteAtlas:
   - fangxiang
   - skillBtn
   - szan
+  - closBtn
+  - X_01
   - power
   - btn1
   - wline
