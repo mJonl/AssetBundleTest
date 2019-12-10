@@ -72,7 +72,7 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
 
         Img.sprite = LoadMgr.Instance.LoadSprite("comAtlas.spr", "btn1");
         GameObject obj = LoadMgr.Instance.LoadPrefab("Cube.pre");
-        GameObject.Instantiate(obj);
+        Instantiate(obj);
         /*
          AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("comAtlas.spr"), (SpriteAtlas sp) => {
            Sprite p = sp.GetSprite("btn2");
