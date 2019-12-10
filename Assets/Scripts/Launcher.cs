@@ -70,15 +70,18 @@ public class Launcher : MonoBehaviour ,IMsgReceiver{
 
     void onClickedBtn() {
 
-       
-        AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("comAtlas.spr"), (SpriteAtlas sp) => {
-          Sprite p = sp.GetSprite("btn2");
-           Img.sprite = p;
-        });
-
-         AssetManager.Instance.LoadAssetAsync<GameObject>(GameConfigs.GetPrefabsPath("Cube.pre"), (GameObject sp) => {
-            GameObject.Instantiate(sp);
+        SpriteAtlas sp = AssetManager.Instance.LoadAsset<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("comAtlas.spr"));
+        Sprite p = sp.GetSprite("btn2");
+        Img.sprite = p;
+        /*
+         AssetManager.Instance.LoadAssetAsync<SpriteAtlas>(GameConfigs.GetSpriteAtlasPath("comAtlas.spr"), (SpriteAtlas sp) => {
+           Sprite p = sp.GetSprite("btn2");
+            Img.sprite = p;
          });
-        
+
+          AssetManager.Instance.LoadAssetAsync<GameObject>(GameConfigs.GetPrefabsPath("Cube.pre"), (GameObject sp) => {
+             GameObject.Instantiate(sp);
+          });*/
+
     }
 }

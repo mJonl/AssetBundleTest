@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 namespace FoxGame.Asset
 {
+    
     public interface IAssetLoader
     {
         //异步加载
